@@ -76,7 +76,14 @@ input { margin: 30px 0 }
   }
 }
 
-#index .episode:first-of-type { padding-top: 0 }
+#index {
+  .episode:first-of-type { padding-top: 0 }
+}
+
+#about {
+  h2 { margin-bottom: 30px; text-align: center }
+  p { font-size: 130% }
+}
 
 #footer {
   padding: 25px;
@@ -89,7 +96,7 @@ input { margin: 30px 0 }
 
   a { color: white }
 
-  ul.pagination-links {
+  .chunk {
     padding-bottom: 20px;
     margin-bottom: 20px;
     border-bottom: 1px solid $red;

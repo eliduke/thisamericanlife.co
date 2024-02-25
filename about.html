@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<div id="about">
+  <h2>About</h2>
+  <p>I really enjoy <i>This American Life</i> (duh), and many years ago I got excited about creating my own little archive in rebellion against evil: the iTunes podcast subscription service (remember iTunes? 🪦). I was a budding web developer and hungry for personal projects that were interesting and helped me learn something new along the way. When I found out that the current This American Life episode could be downloaded from their website for free, I knew it was time to write some code and automate this shit. Ruby to the rescue!</P>
+
+  <p>My first attempt at all this was a pretty slim little Ruby on Rails application, with an `/import` end-point that would check the .org and see if new episodes were available. If so, it would scrape out the necessary meta data (number, title, description, date, image url, mp3 url) and save it all to the database, the image and mp3 urls would then be used to save copies of those files in an s3 bucket. I snagged this sick domain, and then I was good to go whenever I want!</p>
+
+  <p>The problem is, website scraping is notoriously unreliable, and I eventually got sick of dealing with the little bugs that I couldn't figure out. The project went to the backburner and then eventually I let the domain expire. No big deal. Moving on.</p>
+
+  <p>But recently I have been enjoying the process of moving some simple database-driven websites that had fallen by the wayside over to Jekyll / Github Pages! I've been using it for years for my <a href="https://hotwontquit.com" target="_blank">band</a> and <a href="https://secretrollerdisco.org" target="_blank">the roller disco in town</a>, but it's been fun translating everything over to static site generation. Like this thing has <em>pagination and search</em> (for crying out loud!) and it's all achieved with some of the basic built-in functionality. Very cool. BIG FAN.
+
+
+  <p><strong>API</strong></p>
+
+  <p>I use the concept of "API" very loosely here. I think more accurately this section should just be called "End-Point" because that's all you get: one stupid end-point.</p>
+
+  <p><a href="/api.json">thisamericanlife.co/api.json</a></p>
+
+  <p>Currently it's just all of them in one big dump, but it <em>is</em> valid json and eventually I will add a couple basic url params for search, pagination, and probably single episodes. We'll see.</p>
+</div>

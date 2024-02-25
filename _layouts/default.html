@@ -22,7 +22,7 @@
   <div class="container-fluid" style="padding: 0">
     <div id="footer">
       {% if paginator.page_trail %}
-        <ul class="list-inline pagination-links">
+        <ul class="list-inline chunk">
           {% if paginator.previous_page %}
           <li>
             <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}">Newer</a>
@@ -41,11 +41,13 @@
         </ul>
       {% endif %}
 
-      <ul class="list-inline">
-        <li><a href="#">About</a></li>
+      <ul class="list-inline chunk">
+        <li><a href="/about">About</a></li>
         <li><a href="/search">Search</a></li>
         <li><a href="/api.json">API</a></li>
       </ul>
+
+      <p>This site is not affiliated with <a href="https://thisamericanlife.org" target="_blank">thisamericanlife.org</a> in anyway. It's creation, existense, and on-going maintenance is for educational purposes only.</p>
     </div>
   </div>
 </body>
