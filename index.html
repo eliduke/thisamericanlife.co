@@ -3,19 +3,20 @@ layout: default
 pagination:
   enabled: true
 ---
+<div id="index">
+  <form action="/search.html" method="get">
+    <input type="text" id="search-box" name="query" class="form-control input-lg", placeholder="search: type and then hit enter">
+  </form>
 
-<form action="/search.html" method="get">
-  <input type="text" id="search-box" name="query" class="form-control input-lg", placeholder="search: type and then hit enter">
-</form>
-
-{% for episode in paginator.posts %}
-  {% assign slug = episode.id | split: '/' | last %}
-  <div class="episode">
-    <a href="{{episode.id}}">
-      <h2>{{episode.title}}</h2>
-      <p class="date">#{{slug}} - {{episode.date | date: "%B %-d, %Y"}}</p>
-      <img src="{{site.assets}}/images/{{slug}}.jpg" class="img-responsive">
-      <p class="description">{{episode.description}}</p>
-    </a>
-  </div>
-{% endfor %}
+  {% for episode in paginator.posts %}
+    {% assign slug = episode.id | split: '/' | last %}
+    <div class="episode">
+      <a href="{{episode.id}}">
+        <h2>{{episode.title}}</h2>
+        <p class="date">#{{slug}} - {{episode.date | date: "%B %-d, %Y"}}</p>
+        <img src="{{site.assets}}/images/{{slug}}.jpg" class="img-responsive">
+        <p class="description">{{episode.description}}</p>
+      </a>
+    </div>
+  {% endfor %}
+</div>
