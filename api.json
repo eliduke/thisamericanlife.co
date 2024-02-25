@@ -1,7 +1,7 @@
 ---
 layout: none
 ---
-episodes = [
+[
   {%- for episode in site.episodes %}
     {% assign slug = episode.id | split: '/' | last %}
     {
