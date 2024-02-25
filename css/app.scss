@@ -29,12 +29,14 @@ input { margin: 30px 0 }
 }
 
 #search-results {
-  margin-bottom: 40px;
-
+  h2 { font-size: 200%;}
   a { color: $blue }
   a:hover { color: $red }
 
-  li { margin-bottom: 40px }
+  li {
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #eee;
+  }
 }
 
 .episode {
@@ -51,7 +53,7 @@ input { margin: 30px 0 }
   }
 
   a {
-   color: #333;
+   color: $blue;
    text-decoration: none;
   }
 
