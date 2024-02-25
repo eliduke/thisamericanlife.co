@@ -1,0 +1,23 @@
+title: This American Life
+description: Listen to your favorite movies
+url: "https://tal.eliduke.com"
+assets: "https://thisamericanlife.b-cdn.net"
+
+collections:
+  episodes:
+    output: true
+
+pagination:
+  enabled: true
+  debug: true
+  collection: 'episodes'
+  per_page: 10
+  permalink: '/page/:num.html'
+  indexpage: 'index'
+  title: ':title - page :num'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
+  trail:
+    before: 2
+    after: 2

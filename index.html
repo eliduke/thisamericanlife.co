@@ -1,0 +1,17 @@
+---
+layout: default
+pagination:
+  enabled: true
+---
+
+{% for episode in paginator.posts %}
+  {% assign slug = episode.id | split: '/' | last %}
+  <div class="episode">
+    <h2>{{episode.title}}</h2>
+    <p class="date">#{{slug}} - {{episode.date | date: "%B %-d, %Y"}}</p>
+    <a href="{{episode.id}}">
+      <img src="{{site.assets}}/images/{{slug}}.jpg" class="img-responsive">
+    </a>
+    <p class="description">{{episode.description}}</p>
+  </div>
+{% endfor %}

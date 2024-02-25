@@ -1,0 +1,13 @@
+---
+layout: default
+---
+
+{% assign slug = page.id | split: '/' | last %}
+
+<div class="episode">
+  <h2>{{page.title}}</h2>
+  <p class="date">#{{slug}} - {{page.date | date: "%B %-d, %Y"}}</p>
+  <img src="{{site.assets}}/images/{{slug}}.jpg" class="img-responsive">
+  <p class="description">{{page.description}}</p>
+  <audio src="{{site.assets}}/episodes/{{slug}}.mp3" controls preload></audio>
+</div>
