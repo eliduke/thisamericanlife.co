@@ -80,4 +80,13 @@ input { margin: 30px 0 }
   border-top: 5px solid $red;
 
   a { color: white }
+  a:hover {
+
+  }
+
+  ul.pagination-links {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+  }
 }

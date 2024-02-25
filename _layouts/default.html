@@ -22,7 +22,7 @@
   <div class="container-fluid" style="padding: 0">
     <div id="footer">
       {% if paginator.page_trail %}
-        <ul class="list-inline">
+        <ul class="list-inline pagination-links">
           {% if paginator.previous_page %}
           <li>
             <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}">Newer</a>
@@ -40,6 +40,11 @@
           {% endif %}
         </ul>
       {% endif %}
+
+      <ul class="list-inline">
+        <li><a href="#">About</a></li>
+        <li><a href="/search">Search</a></li>
+      </ul>
     </div>
   </div>
 </body>
