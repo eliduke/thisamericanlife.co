@@ -21,8 +21,8 @@
   </div>
   <div class="container-fluid" style="padding: 0">
     <div id="footer">
-      <ul class="list-inline">
-        {% if paginator.page_trail %}
+      {% if paginator.page_trail %}
+        <ul class="list-inline">
           {% if paginator.previous_page %}
           <li>
             <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}">Newer</a>
@@ -38,8 +38,8 @@
             <a href="{{ paginator.next_page_path | prepend: site.baseurl }}">Older</a>
           </li>
           {% endif %}
-        {% endif %}
-      </ul>
+        </ul>
+      {% endif %}
     </div>
   </div>
 </body>
