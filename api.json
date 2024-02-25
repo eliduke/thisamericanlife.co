@@ -1,0 +1,17 @@
+---
+layout: none
+---
+episodes = [
+  {%- for episode in site.episodes %}
+    {% assign slug = episode.id | split: '/' | last %}
+    {
+      "number": {{ episode.number | jsonify }},
+      "date": {{ episode.date | split: " " | first | jsonify }},
+      "title": {{ episode.title | jsonify }},
+      "description": {{ episode.description | strip | jsonify }},
+      "image": "{{ site.assets }}/images/{{slug}}.jpg",
+      "audio": "{{ site.assets }}/episodes/{{slug}}.jpg",
+      "url": "{{ site.url}}{{ episode.id }}"
+    },
+  {% endfor -%}
+]
