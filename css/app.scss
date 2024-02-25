@@ -41,6 +41,10 @@ input { margin: 30px 0 }
   padding: 20px 0;
   border-bottom: 1px dashed #eee;
 
+  &:last-of-type {
+    border-bottom: 0;
+  }
+
   h2 {
     margin-top: 0;
     font-size: 200%;
@@ -66,7 +70,7 @@ input { margin: 30px 0 }
 
   audio {
     width: 100%;
-    margin: 30px 0;
+    margin: 30px 0 0 0;
   }
 }
 
@@ -79,6 +83,7 @@ input { margin: 30px 0 }
   background: $blue;
   text-align: center;
   border-top: 5px solid $red;
+  margin-top: 30px;
 
   a { color: white }
 
