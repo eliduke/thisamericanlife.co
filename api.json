@@ -12,6 +12,7 @@ layout: none
       "image": "{{ site.assets }}/images/{{slug}}.jpg",
       "audio": "{{ site.assets }}/episodes/{{slug}}.jpg",
       "url": "{{ site.url}}{{ episode.id }}"
-    },
+    }
+    {% unless forloop.last %},{% endunless %}
   {% endfor -%}
 ]
