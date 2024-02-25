@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<form action="/search.html" method="get">
+  <input type="text" id="search-box" name="query" class="form-control input-lg", placeholder="search: type and then hit enter">
+</form>
+
+<ul id="search-results" class="list list-unstyled"></ul>
+
+<script>
+  window.store = [
+    {% for episode in site.episodes %}
+      {
+        "title": {{ episode.title | jsonify }},
+        "description": {{ episode.description | strip | jsonify }},
+        "date": {{ episode.date | split: " " | first | jsonify }},
+        "url": {{ episode.id | jsonify }}
+      },
+    {% endfor %}
+  ]
+</script>
+
+<script src="https://unpkg.com/lunr/lunr.js"></script>
+<script src="/js/search.js"></script>
