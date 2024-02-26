@@ -5,7 +5,12 @@ pagination:
 ---
 <div id="index">
   <form action="/search.html" method="get">
-    <input type="text" id="search-box" name="query" class="form-control input-lg", placeholder="search: type and then hit enter">
+    <input
+      id="search-box"
+      type="search"
+      name="query"
+      class="form-control input-lg"
+      placeholder="search: type and then hit enter">
   </form>
 
   {% for episode in paginator.posts %}
