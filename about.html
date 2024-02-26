@@ -4,7 +4,7 @@ layout: default
 
 <div id="about">
   <h2>About</h2>
-  <p>I really enjoy <i>This American Life</i> (duh), and many years ago I got excited about creating my own little archive in rebellion against the iTunes podcast subscription service at the time. I was a budding web developer and hungry for personal projects that were interesting and helped me learn something new along the way. When I found out that the current This American Life episode could be downloaded from their website for free, I knew it was time to write some code and automate this shit. Ruby to the rescue!</P>
+  <p>I really enjoy <i><a href="https://thisamericanlife.org" target="_blank">This American Life</a></i> (duh), and many years ago I got excited about creating my own little archive in rebellion against the iTunes podcast subscription service at the time. I was a budding web developer and hungry for personal projects that were interesting and helped me learn something new along the way. When I found out that the current This American Life episode could be downloaded from their website for free, I knew it was time to write some code and automate this shit. Ruby to the rescue!</P>
 
   <p>My first attempt at all this was a pretty slim little Ruby on Rails application, with an <code>/import</code> end-point that would check the .org and see if new episodes were available. If so, it would use <a href="https://nokogiri.org">Nokogiri</a> to scrape out the necessary meta data (number, title, description, date, image url, mp3 url) and save it all to the database, then use the image and mp3 urls to save copies of those files in an s3 bucket. I snagged this sick domain, and then I was good to go!</p>
 

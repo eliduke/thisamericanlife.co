@@ -12,6 +12,9 @@ body {
 
 input { margin: 30px 0 }
 
+a { color: $red }
+a:hover { color: $blue }
+
 #header {
   h1 {
     margin-top: 0;
