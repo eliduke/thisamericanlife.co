@@ -4,20 +4,53 @@ layout: default
 
 <div id="about">
   <h2>About</h2>
-  <p>I really enjoy <i>This American Life</i> (duh), and many years ago I got excited about creating my own little archive in rebellion against evil: the iTunes podcast subscription service (remember iTunes? 🪦). I was a budding web developer and hungry for personal projects that were interesting and helped me learn something new along the way. When I found out that the current This American Life episode could be downloaded from their website for free, I knew it was time to write some code and automate this shit. Ruby to the rescue!</P>
+  <p>I really enjoy <i>This American Life</i> (duh), and many years ago I got excited about creating my own little archive in rebellion against the iTunes podcast subscription service at the time. I was a budding web developer and hungry for personal projects that were interesting and helped me learn something new along the way. When I found out that the current This American Life episode could be downloaded from their website for free, I knew it was time to write some code and automate this shit. Ruby to the rescue!</P>
 
-  <p>My first attempt at all this was a pretty slim little Ruby on Rails application, with an `/import` end-point that would check the .org and see if new episodes were available. If so, it would scrape out the necessary meta data (number, title, description, date, image url, mp3 url) and save it all to the database, the image and mp3 urls would then be used to save copies of those files in an s3 bucket. I snagged this sick domain, and then I was good to go whenever I want!</p>
+  <p>My first attempt at all this was a pretty slim little Ruby on Rails application, with an <code>/import</code> end-point that would check the .org and see if new episodes were available. If so, it would use <a href="https://nokogiri.org">Nokogiri</a> to scrape out the necessary meta data (number, title, description, date, image url, mp3 url) and save it all to the database, then use the image and mp3 urls to save copies of those files in an s3 bucket. I snagged this sick domain, and then I was good to go!</p>
 
-  <p>The problem is, website scraping is notoriously unreliable, and I eventually got sick of dealing with the little bugs that I couldn't figure out. The project went to the backburner and then eventually I let the domain expire. No big deal. Moving on.</p>
+  <p>The problem is, website scraping is notoriously unreliable, design elements change, paths break, and I eventually got sick of dealing with the little bugs that I couldn't figure out. The project went to the backburner and then eventually I let the domain expire. No big deal. Moving on.</p>
 
-  <p>But recently I have been enjoying the process of moving some simple database-driven websites that had fallen by the wayside over to Jekyll / Github Pages! I've been using it for years for my <a href="https://hotwontquit.com" target="_blank">band</a> and <a href="https://secretrollerdisco.org" target="_blank">the roller disco in town</a>, but it's been fun translating everything over to static site generation. Like this thing has <em>pagination and search</em> (for crying out loud!) and it's all achieved with some of the basic built-in functionality. Very cool. BIG FAN.
+  <p>But recently I have been enjoying the process of moving some of my small database-driven websites over to <a href="https://jekyllrb.com" target="_blank">Jekyll</a> and <a href="https://pages.github.com" target="_blank">Github Pages</a>! I've been using it for years for my <a href="https://hotwontquit.com" target="_blank">band</a> and <a href="https://secretrollerdisco.org" target="_blank">the roller disco in town</a>, but it's been fun translating everything over to static site generation. Like, this frickin' thing has <em>pagination</em> and a pretty good little <em>search bar</em>, and it's all achieved with some of the basic built-in functionality. Very cool. BIG FAN.</p>
 
+  <p>Admittedly, I do miss out on some of the dynamic and automated aspects of the db-driven site. This is a much more manual process, but I think it's still less work in the end. Also, it's free. ;)</p>
 
-  <p><strong>API</strong></p>
+  <p><strong>There's an API?!</strong></p>
 
-  <p>I use the concept of "API" very loosely here. I think more accurately this section should just be called "End-Point" because that's all you get: one stupid end-point.</p>
+  <p>I use the concept of "API" very loosely here. I think more accurately this section should just be called "End-Point" because that's all you get: one dumb end-point.</p>
 
   <p><a href="/api.json">thisamericanlife.co/api.json</a></p>
 
-  <p>Currently it's just all of them in one big dump, but it <em>is</em> valid json and eventually I will add a couple basic url params for search, pagination, and probably single episodes. We'll see.</p>
+  <pre>
+[{
+  "number": 1,
+  "date": "1995-11-17",
+  "title": "New Beginnings",
+  "description": "Our program's very first broadcast.",
+  "image": "https://thisamericanlife.b-cdn.net/images/0001.jpg",
+  "audio": "https://thisamericanlife.b-cdn.net/episodes/0001.jpg",
+  "url": "https://thisamericanlife.co/episodes/0001"
+},{
+  "number": 2,
+  "date": "1995-11-24",
+  "title": "Small Scale Sin",
+  "description": "Small-scale stories on the nature of small-scale sin.",
+  "image": "https://thisamericanlife.b-cdn.net/images/0002.jpg",
+  "audio": "https://thisamericanlife.b-cdn.net/episodes/0002.jpg",
+  "url": "https://thisamericanlife.co/episodes/0002"
+},{
+  "number": 3,
+  "date": "1995-12-01",
+  "title": "Poultry Slam 1995",
+  "description": "Stories decrying the wonders of turkeys, chickens, and other fowl.",
+  "image": "https://thisamericanlife.b-cdn.net/images/0003.jpg",
+  "audio": "https://thisamericanlife.b-cdn.net/episodes/0003.jpg",
+  "url": "https://thisamericanlife.co/episodes/0003"
+},...]
+  </pre>
+
+  <p>Currently it's just all of the episodes in one big dump, but it <em>is</em> valid json and eventually I will add a couple basic url params for search, pagination, and probably single episodes. We'll see. Turns out I think it's fun to make a simple API using static site generation and a sprinkle of javascript. What a world!</p>
+
+  <p>Hope you enjoy,</p>
+
+  <p><a href="https://eliduke.com" target="_blank">Eli</a> 🤓</p>
 </div>
