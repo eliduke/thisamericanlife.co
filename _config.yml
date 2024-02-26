@@ -1,7 +1,7 @@
 title: This American Life
 description: This site is a fan edit of thisamericanlife.org
 url: "https://thisamericanlife.co"
-assets: "https://thisamericanlife.b-cdn.net"
+assets: "https://assets.thisamericanlife.co"
 
 collections:
   episodes:
