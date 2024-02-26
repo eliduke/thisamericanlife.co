@@ -9,8 +9,8 @@ layout: none
   "date": {{ episode.date | split: " " | first | jsonify }},
   "title": {{ episode.title | jsonify }},
   "description": {{ episode.description | strip | jsonify }},
-  "image": "{{ site.assets }}/images/{{slug}}.jpg",
-  "audio": "{{ site.assets }}/episodes/{{slug}}.jpg",
+  "image_url": "{{ site.assets }}/images/{{slug}}.jpg",
+  "audio_url": "{{ site.assets }}/audios/{{slug}}.mp3",
   "url": "{{ site.url}}{{ episode.id }}"
 }
     {%- unless forloop.last -%},{%- endunless -%}

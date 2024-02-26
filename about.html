@@ -4,9 +4,9 @@ layout: default
 
 <div id="about">
   <h2>About</h2>
-  <p>I really enjoy <i><a href="https://thisamericanlife.org" target="_blank">This American Life</a></i> (duh), and many years ago I got excited about creating my own little archive in rebellion against the iTunes podcast subscription service at the time. I was a budding web developer and hungry for personal projects that were interesting and helped me learn something new along the way. When I found out that the current This American Life episode could be downloaded from their website for free, I knew it was time to write some code and automate this shit. Ruby to the rescue!</P>
+  <p>I really enjoy <i><a href="https://thisamericanlife.org" target="_blank">This American Life</a></i> (duh), and many years ago I got excited about creating my own little archive in rebellion against the iTunes podcast subscription service at the time. I was a budding web developer and hungry for personal projects that were interesting and helped me learn something new along the way. When I found out that the current <em>This American Life</em> episode could be downloaded from their website for free, I knew it was time to write some code and automate this shit. Ruby to the rescue!</P>
 
-  <p>My first attempt at all this was a pretty slim little Ruby on Rails application, with an <code>/import</code> end-point that would check the .org and see if new episodes were available. If so, it would use <a href="https://nokogiri.org">Nokogiri</a> to scrape out the necessary meta data (number, title, description, date, image url, mp3 url) and save it all to the database, then use the image and mp3 urls to save copies of those files in an s3 bucket. I snagged this sick domain, and then I was good to go!</p>
+  <p>My first attempt at all this was a simple little Ruby on Rails application, with an <code>/import</code> end-point that would check the .org and see if new episodes were available. If so, it would use <a href="https://nokogiri.org">Nokogiri</a> to scrape out the necessary meta data (number, title, description, date, image url, mp3 url) and save it all to a database, then use the image and mp3 urls to save copies of those files in an s3 bucket. I snagged this sick domain, and I was GOOD TO GO!</p>
 
   <p>The problem is, website scraping is notoriously unreliable, design elements change, paths break, and I eventually got sick of dealing with the little bugs that I couldn't figure out. The project went to the backburner and then eventually I let the domain expire. No big deal. Moving on.</p>
 
@@ -26,29 +26,29 @@ layout: default
   "date": "1995-11-17",
   "title": "New Beginnings",
   "description": "Our program's very first broadcast.",
-  "image": "https://thisamericanlife.b-cdn.net/images/0001.jpg",
-  "audio": "https://thisamericanlife.b-cdn.net/episodes/0001.jpg",
+  "image_url": "https://assets.thisamericanlife.co/images/0001.jpg",
+  "audio_url": "https://assets.thisamericanlife.co/audios/0001.mp3",
   "url": "https://thisamericanlife.co/episodes/0001"
 },{
   "number": 2,
   "date": "1995-11-24",
   "title": "Small Scale Sin",
   "description": "Small-scale stories on the nature of small-scale sin.",
-  "image": "https://thisamericanlife.b-cdn.net/images/0002.jpg",
-  "audio": "https://thisamericanlife.b-cdn.net/episodes/0002.jpg",
+  "image_url": "https://assets.thisamericanlife.co/images/0002.jpg",
+  "audio_url": "https://assets.thisamericanlife.co/audios/0002.mp3",
   "url": "https://thisamericanlife.co/episodes/0002"
 },{
   "number": 3,
   "date": "1995-12-01",
   "title": "Poultry Slam 1995",
   "description": "Stories decrying the wonders of turkeys, chickens, and other fowl.",
-  "image": "https://thisamericanlife.b-cdn.net/images/0003.jpg",
-  "audio": "https://thisamericanlife.b-cdn.net/episodes/0003.jpg",
+  "image_url": "https://assets.thisamericanlife.co/images/0003.jpg",
+  "audio_url": "https://assets.thisamericanlife.co/audios/0003.mp3",
   "url": "https://thisamericanlife.co/episodes/0003"
 },...]
   </pre>
 
-  <p>Currently it's just all of the episodes in one big dump, but it <em>is</em> valid json and eventually I will add a couple basic url params for search, pagination, and probably single episodes. We'll see. Turns out I think it's fun to make a simple API using static site generation and a sprinkle of javascript. What a world!</p>
+  <p>Currently it's every single episode in one big dump, but it <em>is</em> valid json and eventually I will add a couple basic url params for search, pagination, and probably single episodes. We'll see. Turns out I think it's fun to make a simple API using static site generation and a sprinkle of javascript. What a world!</p>
 
   <p>Hope you enjoy,</p>
 
