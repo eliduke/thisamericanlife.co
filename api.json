@@ -2,6 +2,10 @@
 layout: none
 ---
 [
+{
+  "blank": "true",
+  "why": "so that array[1] will return episode 1, etc"
+},
   {%- for episode in site.episodes -%}
     {%- assign slug = episode.id | split: '/' | last -%}
 {

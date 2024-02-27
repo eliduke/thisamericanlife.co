@@ -14,11 +14,13 @@ layout: default
 
   <p>Admittedly, I do miss out on some of the dynamic and automated aspects of the db-driven site. This is a much more manual process, but I think it's still less work in the end. Also, it's free. ;)</p>
 
-  <p><strong>There's an API?!</strong></p>
+  <a id="api"></a>
 
-  <p>I use the concept of "API" very loosely here. I think more accurately this section should just be called "End-Point" because that's all you get: one dumb end-point.</p>
+  <h3>There's an API?!</h3>
 
-  <p><a href="/api.json">thisamericanlife.co/api.json</a></p>
+  <p>I use the label of "API" very loosely here. I think more accurately this section should probably be called "end-point" because that's all you get: one dumb end-point.</p>
+
+  <p><a href="/api.json" target="_blank">{{ site.url }}/api.json</a></p>
 
   <pre>
 [{
@@ -26,29 +28,29 @@ layout: default
   "date": "1995-11-17",
   "title": "New Beginnings",
   "description": "Our program's very first broadcast.",
-  "image_url": "https://assets.thisamericanlife.co/images/0001.jpg",
-  "audio_url": "https://assets.thisamericanlife.co/audios/0001.mp3",
-  "url": "https://thisamericanlife.co/episodes/0001"
+  "image_url": "{{ site.assets }}/images/0001.jpg",
+  "audio_url": "{{ site.assets }}/audios/0001.mp3",
+  "url": "{{ site.url }}/episodes/0001"
 },{
   "number": 2,
   "date": "1995-11-24",
   "title": "Small Scale Sin",
   "description": "Small-scale stories on the nature of small-scale sin.",
-  "image_url": "https://assets.thisamericanlife.co/images/0002.jpg",
-  "audio_url": "https://assets.thisamericanlife.co/audios/0002.mp3",
-  "url": "https://thisamericanlife.co/episodes/0002"
+  "image_url": "{{ site.assets }}/images/0002.jpg",
+  "audio_url": "{{ site.assets }}/audios/0002.mp3",
+  "url": "{{ site.url }}/episodes/0002"
 },{
   "number": 3,
   "date": "1995-12-01",
   "title": "Poultry Slam 1995",
   "description": "Stories decrying the wonders of turkeys, chickens, and other fowl.",
-  "image_url": "https://assets.thisamericanlife.co/images/0003.jpg",
-  "audio_url": "https://assets.thisamericanlife.co/audios/0003.mp3",
-  "url": "https://thisamericanlife.co/episodes/0003"
+  "image_url": "{{ site.assets }}/images/0003.jpg",
+  "audio_url": "{{ site.assets }}/audios/0003.mp3",
+  "url": "{{ site.url }}/episodes/0003"
 },...]
   </pre>
 
-  <p>Currently it's every single episode in one big dump, but it <em>is</em> valid json and eventually I will add a couple basic url params for search, pagination, and probably single episodes. We'll see. Turns out I think it's fun to make a simple API using static site generation and a sprinkle of javascript. What a world!</p>
+  <p>Currently, it's every episode in one big dump, but it <em>is</em> valid json and can be parsed as such. Eventually, I want to add a couple url params for search, pagination, and probably single episodes. We'll see. Turns out, I think this shit is fun. What a world!</p>
 
   <p>Hope you enjoy,</p>
 
