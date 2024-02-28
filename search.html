@@ -16,9 +16,8 @@ layout: default
 <script>
   window.store = [
     {% for episode in site.episodes %}
-      {% assign slug = episode.id | split: '/' | last %}
       {
-        "slug": {{ slug | jsonify }},
+        "slug": "{{ episode.slug }}",
         "title": {{ episode.title | jsonify }},
         "description": {{ episode.description | strip | jsonify }},
         "date": {{ episode.date | split: " " | first | jsonify }},

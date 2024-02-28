@@ -15,12 +15,11 @@ pagination:
   </form>
 
   {% for episode in paginator.posts %}
-    {% assign slug = episode.id | split: '/' | last %}
     <div class="episode">
       <a href="{{episode.id}}">
         <h2>{{episode.title}}</h2>
-        <p class="date">#{{slug}} - {{episode.date | date: "%B %-d, %Y"}}</p>
-        <img src="{{site.assets}}/images/{{slug}}.jpg" class="img-responsive">
+        <p class="date">#{{episode.slug}} - {{episode.date | date: "%B %-d, %Y"}}</p>
+        <img src="{{site.assets}}/images/{{episode.slug}}.jpg" class="img-responsive">
         <p class="description">{{episode.description}}</p>
       </a>
     </div>
