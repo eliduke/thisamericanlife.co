@@ -12,13 +12,11 @@
   <meta property="og:type" content="{% if page.id %}article{% else %}website{% endif %}">
   <meta property="og:title" content="{{ page.title }}">
   <meta property="og:description" content="{{ page.description }}">
-  <meta property="og:image" content="
-    {% if page.id %}
-      {{ site.assets }}/images/{{ page.id | split: '/' | last}}.jpg?v={{ site.time | date: '%s' }}
-    {% else %}
-      {{ site.url }}/images/meta.png?v={{ site.time | date: '%s' }}
-    {% endif%}
-  ">
+  <meta property="og:image" content="{%- if page.id %}
+    {{ site.assets }}/images/{{ page.id | split: '/' | last}}.jpg?v={{ site.time | date: '%s' }}
+  {%- else %}
+    {{ site.url }}/images/meta.png?v={{ site.time | date: '%s' }}
+  {%- endif%}">
 
   <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
@@ -27,11 +25,11 @@
   <meta name="twitter:title" content="{{ page.title }}">
   <meta name="twitter:description" content="{{ page.description }}">
   <meta name="twitter:image" content="
-    {% if page.id %}
+    {%- if page.id %}
       {{ site.assets }}/images/{{ page.id | split: '/' | last}}.jpg?v={{ site.time | date: '%s' }}
-    {% else %}
+    {%- else %}
       {{ site.url }}/images/meta.png?v={{ site.time | date: '%s' }}
-    {% endif%}
+    {%- endif %}
   ">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -51,25 +49,25 @@
   </div>
   <div class="container-fluid" style="padding: 0">
     <div id="footer">
-      {% if paginator.page_trail %}
+      {%- if paginator.page_trail %}
         <ul class="list-inline chunk">
-          {% if paginator.previous_page %}
+          {%- if paginator.previous_page %}
           <li>
             <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}">Newer</a>
           </li>
-          {% endif %}
-          {% for trail in paginator.page_trail %}
+          {%- endif %}
+          {%- for trail in paginator.page_trail %}
             <li {% if page.url == trail.path %}class="selected"{% endif %}>
               <a href="{{ trail.path | prepend: site.baseurl }}" title="{{trail.title}}">{{ trail.num }}</a>
             </li>
-          {% endfor %}
-          {% if paginator.next_page %}
+          {%- endfor %}
+          {%- if paginator.next_page %}
           <li>
             <a href="{{ paginator.next_page_path | prepend: site.baseurl }}">Older</a>
           </li>
-          {% endif %}
+          {%- endif %}
         </ul>
-      {% endif %}
+      {%- endif %}
 
       <ul class="list-inline chunk">
         <li><a href="/about">About</a></li>
