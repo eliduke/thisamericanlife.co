@@ -1,12 +1,11 @@
 ---
 layout: none
 ---
-[
-{
+[{
   "number": 0,
   "why": "so that array[1] will return episode 1, array[2] returns episode 2, etc"
 },
-  {%- for episode in site.episodes -%}
+{%- for episode in site.episodes -%}
 {
   "number": {{ episode.number | jsonify }},
   "date": {{ episode.date | split: " " | first | jsonify }},
@@ -16,6 +15,6 @@ layout: none
   "audio_url": "{{ site.assets }}/audios/{{episode.slug}}.mp3",
   "url": "{{ site.url}}{{ episode.id }}"
 }
-    {%- unless forloop.last -%},{%- endunless -%}
-  {%- endfor -%}
+{%- unless forloop.last -%},{%- endunless -%}
+{%- endfor -%}
 ]
