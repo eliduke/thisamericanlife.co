@@ -21,7 +21,7 @@ layout: default
         "slug": {{ episode.slug | jsonify }},
         "title": {{ episode.title | jsonify }},
         "description": {{ episode.description | strip | jsonify }},
-        "date": {{ episode.date | split: " " | first | jsonify }},
+        "date": {{ episode.date | date: '%-d %B %Y' | jsonify }},
         "url": {{ episode.id | jsonify }}
       },
     {% endfor %}
