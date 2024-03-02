@@ -15,9 +15,10 @@ layout: default
 
 <script>
   window.store = [
+    null,
     {% for episode in site.episodes %}
       {
-        "slug": "{{ episode.slug }}",
+        "slug": {{ episode.slug | jsonify }},
         "title": {{ episode.title | jsonify }},
         "description": {{ episode.description | strip | jsonify }},
         "date": {{ episode.date | split: " " | first | jsonify }},

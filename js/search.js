@@ -8,7 +8,7 @@
       for (var i = 0; i < results.length; i++) {  // Iterate over the results
         var item = store[results[i].ref];
         appendString += '<li><a href="' + item.url + '"><h2>' + item.title + '</h2></a>';
-        appendString += '<p><i>#' + item.slug + " - " + new Date(item.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: '2-digit'}) + '</i></p>';
+        appendString += '<p><i>#' + item.slug + " - " + new Date(item.date).toLocaleDateString('en-UK', { year: 'numeric', month: 'long', day: '2-digit'}) + '</i></p>';
         appendString += '<p>' + item.description + '</p></li>';
       }
 
@@ -40,17 +40,21 @@
     // a boost of 10 to indicate matches on this field are more important.
     var idx = lunr(function () {
       this.field('id');
+      this.field('slug');
       this.field('title', { boost: 10 });
       this.field('description', { boost: 9 });
       this.field('date');
 
-      for (var key in window.store) { // Add the data to lunr
-        this.add({
-          'id': key,
-          'title': window.store[key].title,
-          'description': window.store[key].description,
-          'date': window.store[key].date
-        });
+      for (var index in window.store) {
+        if ( index != 0 ) {
+          this.add({
+            'id': index,
+            'slug': window.store[index].slug,
+            'title': window.store[index].title,
+            'description': window.store[index].description,
+            'date': window.store[index].date
+          });
+        }
       }
     });
 
