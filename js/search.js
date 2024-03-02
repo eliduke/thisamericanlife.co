@@ -8,7 +8,7 @@
       for (var i = 0; i < results.length; i++) {  // Iterate over the results
         var item = store[results[i].ref];
         appendString += '<li><a href="' + item.url + '"><h2>' + item.title + '</h2></a>';
-        appendString += '<p><i>#' + item.slug + " - " + new Date(item.date).toLocaleDateString('en-UK', { year: 'numeric', month: 'long', day: '2-digit'}) + '</i></p>';
+        appendString += '<p><i>#' + item.slug + " - " + item.date + '</i></p>';
         appendString += '<p>' + item.description + '</p></li>';
       }
 
