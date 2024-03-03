@@ -29,7 +29,7 @@ jobs:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
         cache-version: 0 # Increment this number if you need to re-download cached gems
     - name: Import new episodes
-      run: ruby import.rb
+      run: bundle exec ruby import.rb
     - name: Automatic Episode Import
       uses: stefanzweifel/git-auto-commit-action@v5.0.0
       with:
