@@ -3,7 +3,7 @@ source "https://rubygems.org"
 ruby "3.2.2"
 
 gem "jekyll", "~> 4.3"
-gem "nokogiri"
+gem "nokogiri", "~> 1.16"
 gem "bunny_cdn"
 gem "dotenv"
 
