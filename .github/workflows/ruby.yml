@@ -10,7 +10,7 @@ name: Import new episode
 on:
   workflow_dispatch:
   schedule:
-    - cron: 0 18 * * SUN
+    - cron: 0 2 * * MON
 
 permissions:
   contents: write
