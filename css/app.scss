@@ -21,7 +21,7 @@ a:hover { color: $blue }
   text-align: center;
   background: $blue;
   color: white;
-  border-bottom: 5px solid $red;
+  border-bottom: 10px solid $red;
 
   h1 {
     margin: 0 0 5px 0;
@@ -123,7 +123,7 @@ a:hover { color: $blue }
   font-weight: normal;
   background: $blue;
   text-align: center;
-  border-top: 5px solid $red;
+  border-top: 10px solid $red;
   margin-top: 30px;
 
   a { color: white }
@@ -131,7 +131,7 @@ a:hover { color: $blue }
   .chunk {
     padding-bottom: 20px;
     margin-bottom: 20px;
-    border-bottom: 1px solid $red;
+    border-bottom: 2px dotted $red;
   }
 }
 
