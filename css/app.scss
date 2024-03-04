@@ -106,6 +106,15 @@ a:hover { color: $blue }
   }
 
   p { font-size: 130% }
+
+  p.api-link {
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  pre {
+    margin: 30px 0;
+  }
 }
 
 #footer {
