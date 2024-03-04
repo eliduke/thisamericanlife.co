@@ -62,7 +62,7 @@ input_ids.each do |id|
       puts "* Uploading audio file..."
       path = "#{slug}.mp3"
       File.open(path, "wb") { |file| file.write(audio.read) }
-      if BunnyCdn::Storage.uploadFile('tmp', path)
+      if BunnyCdn::Storage.uploadFile('audios', path)
         File.delete(path)
       end
     end
@@ -71,7 +71,7 @@ input_ids.each do |id|
       puts "* Uploading image file..."
       path = "#{slug}.jpg"
       File.open(path, "wb") { |file| file.write(image.read) }
-      if BunnyCdn::Storage.uploadFile('tmp', path)
+      if BunnyCdn::Storage.uploadFile('images', path)
         File.delete(path)
       end
     end
