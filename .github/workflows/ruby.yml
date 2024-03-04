@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 jobs:
-  import:
+  ruby-import:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -30,4 +30,6 @@ jobs:
       uses: stefanzweifel/git-auto-commit-action@v5.0.0
       with:
         commit_message: Cron job episode import
-        github_token: ${{ secrets.WORKFLOW_PAT }}
+  jekyll:
+    needs: ruby-import
+    uses: ./.github/workflows/jekyll.yml
