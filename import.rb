@@ -12,7 +12,7 @@ BunnyCdn.configure do |config|
   config.accessKey = ENV['BUNNY_ACCESS_KEY']
 end
 
-puts BunnyCdn.configuration
+puts BunnyCdn.configuration.inspect
 
 last_episode_id = Dir["_episodes/*"].last.split("/").last.split(".").first.to_i
 
