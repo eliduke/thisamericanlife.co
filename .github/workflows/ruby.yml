@@ -27,6 +27,9 @@ jobs:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
         cache-version: 0 # Increment this number if you need to re-download cached gems
     - name: Import new episodes
+      env:
+        BUNNY_API_KEY: ${{ secrets.BUNNY_API_KEY }}
+        BUNNY_ACCESS_KEY: ${{ secrets.BUNNY_ACCESS_KEY }}
       run: bundle exec ruby import.rb
     - name: Automatic Episode Import
       uses: stefanzweifel/git-auto-commit-action@v5.0.0
