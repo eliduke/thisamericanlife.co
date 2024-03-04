@@ -31,4 +31,5 @@ jobs:
       with:
         commit_message: Cron job episode import
   deploy:
+    needs: import
     uses: ./.github/workflows/jekyll.yml
