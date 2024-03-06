@@ -82,17 +82,18 @@ a:hover { color: $blue }
 
   audio {
     width: 100%;
-    margin: 10px 0 -10px 0;
+    margin: 10px 0 -6px 0;
     opacity: 100%;
   }
 
   ul.links {
     font-size: 80%;
     margin: 0 15px 20px 15px;
-    padding: 7px 3px 3px 3px;
-    border: 1px dotted #858585;
-    border-radius: 5px;
+    padding: 3px;
+    border: 1px solid #ccc;
+    border-radius: 0px 0px 5px 5px;
     text-align: center;
+    background-color: #eee;
 
     a { color: $blue }
     a:hover {color: $red; text-decoration: underline }
