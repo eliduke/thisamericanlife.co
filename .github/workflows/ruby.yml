@@ -19,14 +19,14 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-        cache-version: 0 # Increment this number if you need to re-download cached gems
-    - name: Import new episodes
+        bundler-cache: true
+        cache-version: 0
+    - name: Import new episode
       env:
         BUNNY_API_KEY: ${{ secrets.BUNNY_API_KEY }}
         BUNNY_ACCESS_KEY: ${{ secrets.BUNNY_ACCESS_KEY }}
-      run: bundle exec ruby import.rb
-    - name: Commit changes (usually just 1 new file in /_episodes)
+      run: bundle exec ruby rb/import.rb
+    - name: Commit changes
       uses: stefanzweifel/git-auto-commit-action@v5.0.0
       with:
         commit_message: Cron job episode import
