@@ -18,8 +18,8 @@ jobs:
       uses: actions/checkout@v4
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
-      with:
-        bundler-cache: true
+    - name: Bundle Install
+      run: bundle install
     - name: Import new episode
       env:
         BUNNY_API_KEY: ${{ secrets.BUNNY_API_KEY }}
