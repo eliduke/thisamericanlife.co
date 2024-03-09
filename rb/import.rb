@@ -4,7 +4,7 @@ require 'date'
 require 'bunny_cdn'
 
 # uncommit for dev purposes
-require 'dotenv/load'
+# require 'dotenv/load'
 # require 'pry'
 
 BunnyCdn.configure do |config|
@@ -22,14 +22,18 @@ begin
   header = doc.css('.episode-header')
   slug   = "%04d" % new_episode_id
 
+  # RETURN because the episode has already been imported!
   if File.exist?("_episodes/#{slug}.html")
     puts "Episode #{new_episode_id} has already been imported."
     return
   end
 
+  # RETURN because the episode is only a promo, not fully released yet
   if header.css('.download').css('a').empty?
-    available_when_text = header.css('.download').children.first.to_s.strip
-    puts "Episode #{new_episode_id} is not quite ready. #{available_when_text}."
+    soon  = header.css('.download').children.first.to_s.strip
+    later = header.css('.date-display-single').children.to_s
+    wen   = soon.empty? ? "It will be available on #{later}" : soon
+    puts "Episode #{new_episode_id} is not quite ready. #{wen}."
     return
   end
 
@@ -82,6 +86,7 @@ begin
 
   puts "EPISODE #{new_episode_id} WAS IMPORTED SUCCESSFULLY!\n"
 rescue OpenURI::HTTPError => e
+  # RETURN because the episode doesn't even exist yet, bro
   if e.message == '404 Not Found'
     puts "Episode #{new_episode_id} doesn't exist yet."
   else
