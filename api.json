@@ -14,7 +14,8 @@ layout: none
   "description": {{ episode.description | strip | jsonify }},
   "image_url": "{{ site.assets }}/images/{{episode.slug}}.jpg",
   "audio_url": "{{ site.assets }}/audios/{{episode.slug}}.mp3",
-  "url": "{{ site.url}}{{ episode.id }}"
+  "url": "{{ site.url}}{{ episode.id }}",
+  "url_external": "https://tal.fm/{{ episode.number }}"
 }
 {%- unless forloop.last -%},{%- endunless -%}
 {%- endfor -%}
