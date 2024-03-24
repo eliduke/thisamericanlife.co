@@ -19,7 +19,7 @@ pagination:
     <div class="episode">
       <a href="{{episode.id}}">
         <h2>{{episode.title}}</h2>
-        <p class="date">#{{episode.slug}} - {{episode.date | date: "%-d %B %Y"}}</p>
+        <p class="date">#{{episode.number}} - {{episode.date | date: "%-d %B %Y"}}</p>
         <img src="{{site.assets}}/images/{{episode.slug}}.jpg" class="img-responsive">
         <p class="description">{{episode.description}}</p>
       </a>

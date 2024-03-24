@@ -4,7 +4,7 @@ layout: default
 
 <div class="episode">
   <h2>{{page.title}}</h2>
-  <p class="date">#{{page.slug}} - {{page.date | date: "%-d %B %Y"}}</p>
+  <p class="date">#{{page.number}} - {{page.date | date: "%-d %B %Y"}}</p>
   <p class="description">{{page.description}}</p>
   <audio src="{{site.assets}}/audios/{{page.slug}}.mp3" controls preload></audio>
   <ul class="links list list-inline">

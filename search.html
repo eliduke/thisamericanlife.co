@@ -21,6 +21,7 @@ description: Find your favorite episodes of This American Life
     null,
     {% for episode in site.episodes %}
       {
+        "number": {{ episode.number | jsonify }},
         "slug": {{ episode.slug | jsonify }},
         "title": {{ episode.title | jsonify }},
         "description": {{ episode.description | strip | jsonify }},

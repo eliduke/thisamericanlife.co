@@ -8,7 +8,7 @@
       for (var i = 0; i < results.length; i++) {  // Iterate over the results
         var item = store[results[i].ref];
         appendString += '<li><a href="' + item.url + '"><h2>' + item.title + '</h2></a>';
-        appendString += '<p><i>#' + item.slug + " - " + item.date + '</i></p>';
+        appendString += '<p><i>#' + item.number + " - " + item.date + '</i></p>';
         appendString += '<p>' + item.description + '</p></li>';
       }
 
@@ -40,6 +40,7 @@
     // a boost of 10 to indicate matches on this field are more important.
     var idx = lunr(function () {
       this.field('id');
+      this.field('number');
       this.field('slug');
       this.field('title', { boost: 10 });
       this.field('description', { boost: 9 });
@@ -49,6 +50,7 @@
         if ( index != 0 ) {
           this.add({
             'id': index,
+            'number': window.store[index].number,
             'slug': window.store[index].slug,
             'title': window.store[index].title,
             'description': window.store[index].description,
