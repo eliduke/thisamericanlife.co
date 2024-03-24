@@ -15,6 +15,12 @@ input { margin: 30px 0 }
 a { color: $red }
 a:hover { color: $blue }
 
+h2 {
+  font-size: 200%;
+  font-family: Georgia, serif;
+}
+
+
 #header {
   margin-top: 0;
   padding: 30px 0;
@@ -38,7 +44,6 @@ a:hover { color: $blue }
 }
 
 #search-results {
-  h2 { font-size: 200%;}
   a { color: $blue }
   a:hover { color: $red }
 
@@ -52,14 +57,8 @@ a:hover { color: $blue }
   padding: 30px 0;
   border-bottom: 1px dashed #eee;
 
-  &:last-of-type {
-    border-bottom: 0;
-  }
-
-  h2 {
-    margin-top: 0;
-    font-size: 200%;
-  }
+  &:last-of-type { border-bottom: 0 }
+  h2 { margin-top: 0 }
 
   a {
    color: $blue;
