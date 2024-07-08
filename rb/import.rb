@@ -87,7 +87,7 @@ begin
   puts "EPISODE #{new_episode_id} WAS IMPORTED SUCCESSFULLY!\n"
 rescue OpenURI::HTTPError => e
   # RETURN because the episode doesn't even exist yet, bro
-  if e.message == '404 Not Found'
+  if e.message == '404 Not Found' || e.message == '403 Forbidden'
     puts "Episode #{new_episode_id} doesn't exist yet."
   else
     raise e
