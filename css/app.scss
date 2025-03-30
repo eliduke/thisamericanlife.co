@@ -34,13 +34,15 @@ h2 {
     font-size: 230%;
     font-family: Georgia, serif;
 
+    a { color: white; text-decoration: none }
+    a:hover { text-decoration: underline }
     span { color: $red }
   }
 
   p { margin: 0 }
 
-  a { color: white }
-  a:hover { text-decoration: underline }
+  a { color: white; text-decoration: underline }
+  a:hover { text-decoration: none }
 }
 
 #search-results {
