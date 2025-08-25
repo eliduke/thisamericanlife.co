@@ -18,7 +18,7 @@ last_episode_id = Dir["_episodes/*"].last.split("/").last.split(".").first.to_i
 new_episode_id = last_episode_id + 1
 
 begin
-  doc    = Nokogiri::HTML(URI.open("https://tal.fm/#{new_episode_id}"))
+  doc    = Nokogiri::HTML(URI.open("https://www.thisamericanlife.org/s/#{new_episode_id}"))
   header = doc.css('.episode-header')
   slug   = "%04d" % new_episode_id
 
