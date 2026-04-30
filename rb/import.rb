@@ -3,9 +3,8 @@ require 'open-uri'
 require 'date'
 require 'bunny_cdn'
 
-# uncommit for dev purposes
+# uncomment for dev purposes
 # require 'dotenv/load'
-# require 'pry'
 
 BunnyCdn.configure do |config|
   config.apiKey = ENV['BUNNY_API_KEY']
