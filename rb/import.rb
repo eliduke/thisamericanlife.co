@@ -24,7 +24,7 @@ begin
   slug   = '%04d' % new_episode_id
 
   # RETURN because the episode has already been imported!
-  if File.exist?("_episodes/#{slug}.html")
+  if File.exist?("_episodes/#{slug}.md")
     puts "Episode #{new_episode_id} has already been imported."
     return
   end
