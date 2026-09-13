@@ -6,6 +6,7 @@ gem "jekyll", "~> 4.3"
 gem "nokogiri", "~> 1.16"
 gem "bunny_cdn"
 gem "dotenv"
+gem "front_matter_parser"
 
 group :jekyll_plugins do
   gem "liquid-pry"
