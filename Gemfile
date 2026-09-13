@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.4.2"
+ruby "4.0.2"
 
 gem "jekyll", "~> 4.3"
 gem "nokogiri", "~> 1.16"
