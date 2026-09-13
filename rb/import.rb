@@ -41,11 +41,11 @@ begin
   puts "IMPORTING NEW EPISODE #{new_episode_id}!\n"
   puts '* Scraping meta data...'
 
-  date    = Date.parse(header.css('.date-display-single').children.to_s).strftime('%F')
-  title   = header.css('.episode-title').css('h1').children.to_s
-  body    = header.css('.field-name-body').css('p').children.to_s.gsub(/<[^>]*>/, '')
-  audio   = header.css('.download').css('a')[0]['href'].split('?').first
-  image   = if doc.css('.tal-episode-image').nil?
+  date  = Date.parse(header.css('.date-display-single').children.to_s).strftime('%F')
+  title = header.css('.episode-title').css('h1').children.to_s
+  body  = header.css('.field-name-body').css('p').children.to_s.gsub(/<[^>]*>/, '')
+  audio = header.css('.download').css('a')[0]['href'].split('?').first
+  image = if doc.css('.tal-episode-image').nil?
             doc.at("meta[property='og:image']")['content']
           else
             doc.css('.tal-episode-image').css('img')[0]['src'].split('?').first
