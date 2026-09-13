@@ -904,9 +904,9 @@
   { number: 895, title: %^Label Maker!^, description: %^Labels are powerful. They can distill you down to a single word. They can get stuck on you without your permission. And sometimes, when they get taken away, they can upend your entire life. On this episode: labels and the havoc they wreak.^, date: "2026-08-14" },
   { number: 896, title: %^I Know What You Need^, description: %^Moments when it seems obvious what to do for someone else, so of course you jump in and try to help — and what happens after that. ^, date: "2026-08-28" }
 ].each do |episode|
-  file_number = "%04d" % episode.number
+  file_number = '%04d' % episode.number
 
-  File.open("files/#{file_number}.html", "w") do |file|
+  File.open("files/#{file_number}.html", 'wb') do |file|
     file.write(<<~EOS
     ---
     layout: episode

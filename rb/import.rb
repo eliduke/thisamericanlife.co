@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'nokogiri'
 require 'open-uri'
 require 'date'
@@ -8,18 +10,18 @@ require 'bunny_cdn'
 
 BunnyCdn.configure do |config|
   config.apiKey = ENV['BUNNY_API_KEY']
-  config.storageZone = "thisamericanlife"
-  config.region = "la"
+  config.storageZone = 'thisamericanlife'
+  config.region = 'la'
   config.accessKey = ENV['BUNNY_ACCESS_KEY']
 end
 
-last_episode_id = Dir["_episodes/*"].last.split("/").last.split(".").first.to_i
+last_episode_id = Dir['_episodes/*'].last.split('/').last.split('.').first.to_i
 new_episode_id = last_episode_id + 1
 
 begin
   doc    = Nokogiri::HTML(URI.open("https://www.thisamericanlife.org/s/#{new_episode_id}"))
   header = doc.css('.episode-header')
-  slug   = "%04d" % new_episode_id
+  slug   = '%04d' % new_episode_id
 
   # RETURN because the episode has already been imported!
   if File.exist?("_episodes/#{slug}.html")
@@ -37,38 +39,34 @@ begin
   end
 
   puts "IMPORTING NEW EPISODE #{new_episode_id}!\n"
-  puts "* Scraping meta data..."
+  puts '* Scraping meta data...'
 
-  date  = Date.parse(header.css('.date-display-single').children.to_s).strftime('%F')
-  title = header.css('.episode-title').css('h1').children.to_s
-  body  = header.css('.field-name-body').css('p').children.to_s.gsub(/<[^>]*>/,'')
-  mp3   = header.css('.download').css('a')[0]['href'].split('?').first
-  image = if doc.css('.tal-episode-image').nil?
-    doc.at("meta[property='og:image']")['content']
-  else
-    doc.css('.tal-episode-image').css('img')[0]['src'].split('?').first
-  end
+  date    = Date.parse(header.css('.date-display-single').children.to_s).strftime('%F')
+  title   = header.css('.episode-title').css('h1').children.to_s
+  body    = header.css('.field-name-body').css('p').children.to_s.gsub(/<[^>]*>/, '')
+  audio   = header.css('.download').css('a')[0]['href'].split('?').first
+  image   = if doc.css('.tal-episode-image').nil?
+            doc.at("meta[property='og:image']")['content']
+          else
+            doc.css('.tal-episode-image').css('img')[0]['src'].split('?').first
+          end
 
-  puts "* Uploading audio file..."
-  URI.open(mp3) do |audio|
+  puts '* Uploading audio file...'
+  URI.open(audio) do |mp3|
     path = "#{slug}.mp3"
-    File.open(path, "wb") { |file| file.write(audio.read) }
-    if BunnyCdn::Storage.uploadFile('audios', path)
-      File.delete(path)
-    end
+    File.open(path, 'wb') { |file| file.write(mp3.read) }
+    File.delete(path) if BunnyCdn::Storage.uploadFile('audios', path)
   end
 
-  puts "* Uploading image file..."
-  URI.open(image) do |image|
+  puts '* Uploading image file...'
+  URI.open(image) do |jpg|
     path = "#{slug}.jpg"
-    File.open(path, "wb") { |file| file.write(image.read) }
-    if BunnyCdn::Storage.uploadFile('images', path)
-      File.delete(path)
-    end
+    File.open(path, 'wb') { |file| file.write(jpg.read) }
+    File.delete(path) if BunnyCdn::Storage.uploadFile('images', path)
   end
 
-  puts "* Creating episode file..."
-  File.open("./_episodes/#{slug}.md", "wb") do |file|
+  puts '* Creating episode file...'
+  File.open("./_episodes/#{slug}.md", 'wb') do |file|
     file.write(<<~EOS
     ---
     layout: episode
