@@ -906,7 +906,7 @@
 ].each do |episode|
   file_number = '%04d' % episode.number
 
-  File.open("files/#{file_number}.html", 'wb') do |file|
+  File.open("files/#{file_number}.md", 'wb') do |file|
     file.write(<<~EOS
     ---
     layout: episode
