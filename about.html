@@ -6,21 +6,21 @@ title: About
 <div id="about">
   <h3>About</h3>
 
-  <p>I really enjoy <i><a href="https://thisamericanlife.org" target="_blank">This American Life</a></i> (duh), and many years ago I got excited about creating my own little archive in rebellion against the iTunes podcast subscription service at the time. I was a budding web developer and hungry for personal projects that were interesting and helped me learn something new along the way. When I found out that the current <em>This American Life</em> episode could be downloaded from their website for free, I knew it was time to write some code and automate this shit. Ruby to the rescue!</P>
+  <p>Obivously I really enjoy <i><a href="https://thisamericanlife.org" target="_blank">This American Life</a></i>, and many years ago I got excited about creating my own little archive in rebellion against the iTunes podcast subscription service at the time. I was a budding web developer and hungry for personal projects that were interesting and helped me learn something new along the way. When I found out that the current <em>This American Life</em> episode could be downloaded from their website for free, I knew it was time to write some code and automate this shit. Ruby to the rescue!</P>
 
-  <p>My first attempt at all this was a simple little Ruby on Rails application, with an <code>/import</code> end-point that would check the .org and see if new episodes were available. If so, it would use <a href="https://nokogiri.org">Nokogiri</a> to scrape out the necessary meta data (number, title, description, date, image url, mp3 url) and save it all to a database, then use the image and mp3 urls to save copies of those files in an s3 bucket. I snagged this sick domain, and I was GOOD TO GO!</p>
+  <p>My first attempt was a simple little Ruby on Rails application, with an <code>/import</code> end-point that would check the .org and see if new episodes were available. If so, it would use <a href="https://nokogiri.org">Nokogiri</a> to scrape out the necessary meta data (number, title, description, date, image url, mp3 url) and save it all to a database, then use the image and mp3 urls to save copies of those files in an s3 bucket. I snagged this sick domain, and I was GOOD TO GO!</p>
 
-  <p>The problem is, website scraping is notoriously unreliable, design elements change, paths break, and I was having a weird issue saving the mp3 files. It was clunky to say the least. I got sick of dealing with the little bugs that I couldn't figure out, and the project went to the backburner. Time went by. I let the domain expire.</p>
+  <p>The problem is, website scraping is notoriously unreliable, design elements change, paths break, and I was having a weird issue saving the mp3 files. There was something werid going on with Rails and Heroku and files being saved to disk in the process of uploading it to s3. It was clunky to say the least! Eventually I got sick of dealing with the little bugs that I couldn't figure out, and the project went to the backburner. Time went by. I let the domain expire.</p>
 
-  <p>No big deal. Moving on.</p>
+  <p>No big deal. I moved on.</p>
 
-  <p>These days I've been having lots of fun with <a href="https://jekyllrb.com" target="_blank">Jekyll</a> and <a href="https://pages.github.com" target="_blank">Github Pages</a>. I started using it for <a href="https://hotwontquit.com" target="_blank">my band</a> about a decade ago, it was the obvious choice for <a href="https://secretrollerdisco.org" target="_blank">the roller disco in town</a>, and it's been super fun translating some of my small database-driven Ruby on Rails projects over to the wonderful world of <em>files on disk</em> and <em>front-matter</em>! Like, this frickin' thing has <em>pagination</em>, a pretty good little <em>search bar</em>, and it's all achieved with basic, mostly built-in, functionality.</p>
+  <p>Recently I've been having lots of fun playing around with <a href="https://jekyllrb.com" target="_blank">Jekyll</a> and <a href="https://pages.github.com" target="_blank">Github Pages</a>. I started using it for <a href="https://hotwontquit.com" target="_blank">my band</a> about a decade ago, it was the obvious choice for <a href="https://secretrollerdisco.org" target="_blank">the roller disco in town</a>, and it's been super fun translating some of my small database-driven Ruby on Rails projects over to the wonderful world of <em>files on disk</em> and <em>front-matter</em>! Like, this silly little project has <em>pagination</em>, a pretty good little <em><a href="/search">search bar</a></em>, and it's all achieved with mostly basic and built-in functionality.</p>
 
-  <p>Very cool. BIG FAN.</p>
+  <p>Very cool! BIG FAN.</p>
 
   <p>Admittedly, I do miss out on some of the dynamic and/or automated aspects of a db-driven site. But with the help of a new and improved <a href="https://github.com/eliduke/thisamericanlife.co/blob/main/rb/import.rb" target="_blank">ruby import script</a>, super handy <a href="https://github.com/eliduke/thisamericanlife.co/blob/main/.github/workflows/ruby.yml#L5-L6" target="_blank">GitHub Actions cron job scheduling</a>, and <a href="https://bunny.net" target="_blank">my new favorite cloud storage provider</a>, it feels like much less work in the end. And more fun! I get to use ruby in short bursts, from a couple different angles, but the end product is still just static files served up on a simple web server. These days I'm asking myself, does this project really need an always-on database process running?!</p>
 
-  <p>Also, it's free. ;)</p>
+  <p>Probably not! Also, this is free. ;)</p>
 
   <a id="api"></a>
 
@@ -28,7 +28,7 @@ title: About
 
   <p>I use the label "API" very loosely here. I think more accurately this section should probably be called "End-Point" because that's all you get: one dumb end-point.</p>
 
-  <pre>
+<pre>
 [{
   "number": 0,
   "why": "so that array[1] will return episode 1, array[2] returns episode 2, etc"
@@ -37,27 +37,30 @@ title: About
   "date": "1995-11-17",
   "title": "New Beginnings",
   "description": "Our program's very first broadcast.",
-  "image_url": "{{ site.assets }}/images/0001.jpg",
-  "audio_url": "{{ site.assets }}/audios/0001.mp3",
-  "url": "{{ site.url }}/episodes/0001"
+  "image_url": "https://assets.thisamericanlife.co/images/0001.jpg",
+  "audio_url": "https://assets.thisamericanlife.co/audios/0001.mp3",
+  "url": "https://thisamericanlife.co/episodes/0001",
+  "url_external": "https://www.thisamericanlife.org/s/1"
 },{
   "number": 2,
   "date": "1995-11-24",
   "title": "Small Scale Sin",
   "description": "Small-scale stories on the nature of small-scale sin.",
-  "image_url": "{{ site.assets }}/images/0002.jpg",
-  "audio_url": "{{ site.assets }}/audios/0002.mp3",
-  "url": "{{ site.url }}/episodes/0002"
+  "image_url": "https://assets.thisamericanlife.co/images/0002.jpg",
+  "audio_url": "https://assets.thisamericanlife.co/audios/0002.mp3",
+  "url": "https://thisamericanlife.co/episodes/0002",
+  "url_external": "https://www.thisamericanlife.org/s/2"
 },{
   "number": 3,
   "date": "1995-12-01",
   "title": "Poultry Slam 1995",
   "description": "Stories decrying the wonders of turkeys, chickens, and other fowl.",
-  "image_url": "{{ site.assets }}/images/0003.jpg",
-  "audio_url": "{{ site.assets }}/audios/0003.mp3",
-  "url": "{{ site.url }}/episodes/0003"
+  "image_url": "https://assets.thisamericanlife.co/images/0003.jpg",
+  "audio_url": "https://assets.thisamericanlife.co/audios/0003.mp3",
+  "url": "https://thisamericanlife.co/episodes/0003",
+  "url_external": "https://www.thisamericanlife.org/s/3"
 },...]
-  </pre>
+</pre>
 
   <p class="api-link">
     <a href="/api.json" target="_blank">{{ site.url }}/api.json</a>
