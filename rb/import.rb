@@ -68,7 +68,7 @@ begin
   end
 
   puts "* Creating episode file..."
-  File.open("./_episodes/#{slug}.html", "wb") do |file|
+  File.open("./_episodes/#{slug}.md", "wb") do |file|
     file.write(<<~EOS
     ---
     layout: episode
