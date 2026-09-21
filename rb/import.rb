@@ -8,13 +8,11 @@ require 'bunny_cdn'
 # uncomment for dev purposes
 # require 'dotenv/load'
 
-BunnyCdn.configure do |config|
-  config.apiKey = ENV['BUNNY_API_KEY']
-  config.storageZone = 'thisamericanlife'
-  config.region = 'la'
-  config.accessKey = ENV['BUNNY_ACCESS_KEY']
-end
+# Configure BunnyCdn for uploading files
+bunny   = BunnyCdn::Client.new(api_key: ENV['BUNNY_ACCESS_KEY'])
+storage = bunny.storage(zone_name: "thisamericanlife", region: "la")
 
+# Figure out what episode you are trying to import
 last_episode_id = Dir['_episodes/*'].last.split('/').last.split('.').first.to_i
 new_episode_id = last_episode_id + 1
 
@@ -55,14 +53,14 @@ begin
   URI.open(audio) do |mp3|
     path = "#{slug}.mp3"
     File.open(path, 'wb') { |file| file.write(mp3.read) }
-    File.delete(path) if BunnyCdn::Storage.uploadFile('audios', path)
+    File.delete(path) if storage.upload("audios/#{path}", path)
   end
 
   puts '* Uploading image file...'
   URI.open(image) do |jpg|
     path = "#{slug}.jpg"
     File.open(path, 'wb') { |file| file.write(jpg.read) }
-    File.delete(path) if BunnyCdn::Storage.uploadFile('images', path)
+    File.delete(path) if storage.upload("images/#{path}", path)
   end
 
   puts '* Creating episode file...'

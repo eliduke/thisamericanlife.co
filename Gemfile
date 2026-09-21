@@ -1,10 +1,10 @@
 source "https://rubygems.org"
 
-ruby "3.4.2"
+ruby "4.0.2"
 
-gem "jekyll", "~> 4.3"
-gem "nokogiri", "~> 1.16"
-gem "bunny_cdn", "1.3.1"
+gem "jekyll"
+gem "nokogiri"
+gem "bunny_cdn"
 gem "dotenv"
 gem "front_matter_parser"
 
