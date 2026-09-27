@@ -1,0 +1,101 @@
+:root {
+  --blue-color: #051357;
+  --red-color: #D82F20;
+}
+
+a { color: var(--red-color) }
+a:hover { color: var(--blue-color); text-decoration: none; }
+
+h1, h2 { font-family: Georgia, serif }
+
+#header {
+  background: var(--blue-color);
+  border-bottom: 10px solid var(--red-color);
+
+  a { color: white; text-decoration: underline }
+  a:hover { text-decoration: none }
+
+  h1 {
+    font-size: 225%;
+    a { color: white; text-decoration: none }
+    a:hover { text-decoration: none }
+    span { color: var(--red-color) }
+  }
+}
+
+#search-results {
+  a { color: var(--blue-color); text-decoration: none }
+  a:hover { color: var(--red-color); text-decoration: underline }
+
+  li {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #ccc;
+  }
+}
+
+.episode {
+  border-bottom: 1px dashed #eee;
+
+  &:last-of-type { border-bottom: 0 }
+
+  a {
+   color: var(--blue-color);
+   text-decoration: none;
+  }
+
+  a h2:hover {
+    color: var(--red-color);
+    text-decoration: underline;
+  }
+
+  audio { margin: 10px 0 -7px 0 }
+
+  ul.audio-links {
+    font-size: 80%;
+    margin: 0 15px 20px 15px;
+    padding: 3px;
+    border: 1px solid #ccc;
+    border-radius: 0px 0px 5px 5px;
+    text-align: center;
+    background-color: #eee;
+
+    a { color: var(--blue-color) }
+    a:hover {color: var(--red-color); text-decoration: underline }
+  }
+}
+
+#about {
+  p { font-size: 120% }
+  pre { margin: 30px 0 }
+}
+
+#footer {
+  background: var(--blue-color);
+  border-top: 10px solid var(--red-color);
+
+  a { color: white }
+
+  .chunk {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px dotted var(--red-color);
+  }
+}
+
+/*==========  Mobile First Method  ==========*/
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+  #header { h1 { font-size: 300% } }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+  #header { h1 { font-size: 375% } }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+  #header { h1 { font-size: 450% } }
+}

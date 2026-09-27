@@ -11,17 +11,17 @@ pagination:
       id="search-box"
       type="search"
       name="query"
-      class="form-control input-lg"
-      placeholder="search: type and then hit enter">
+      class="form-control form-control-lg my-4"
+      placeholder="search -> type and then hit enter">
   </form>
 
   {% for episode in paginator.posts %}
-    <div class="episode">
+    <div class="episode mb-4">
       <a href="{{episode.id}}">
-        <h2>{{episode.title}}</h2>
-        <p class="date">#{{episode.number}} - {{episode.date | date: "%-d %B %Y"}}</p>
-        <img src="{{site.assets}}/images/{{episode.slug}}.jpg" class="img-responsive">
-        <p class="description">{{episode.description}}</p>
+        <h2 class="mt-0 pt-0">{{episode.title}}</h2>
+        <p class="text-dark-emphasis fst-italic">#{{episode.number}} - {{episode.date | date: "%-d %B %Y"}}</p>
+        <img class="img-fluid my-3" src="{{site.assets}}/images/{{episode.slug}}.jpg">
+        <p class="text-dark-emphasis fs-5 mb-4">{{episode.description}}</p>
       </a>
     </div>
   {% endfor %}

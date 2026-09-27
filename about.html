@@ -4,17 +4,17 @@ title: About
 ---
 
 <div id="about">
-  <h3>About</h3>
+  <h3 class="fw-bold fs-2 my-4 text-center">About</h3>
 
   <p>Obivously I really enjoy <i><a href="https://thisamericanlife.org" target="_blank">This American Life</a></i>, and many years ago I got excited about creating my own little archive in rebellion against the iTunes podcast subscription service at the time. I was a budding web developer and hungry for personal projects that were interesting and helped me learn something new along the way. When I found out that the current <em>This American Life</em> episode could be downloaded from their website for free, I knew it was time to write some code and automate this shit. Ruby to the rescue!</P>
 
-  <p>My first attempt was a simple little Ruby on Rails application, with an <code>/import</code> end-point that would check the .org and see if new episodes were available. If so, it would use <a href="https://nokogiri.org">Nokogiri</a> to scrape out the necessary meta data (number, title, description, date, image url, mp3 url) and save it all to a database, then use the image and mp3 urls to save copies of those files in an s3 bucket. I snagged this sick domain, and I was GOOD TO GO!</p>
+  <p>My first attempt was a simple little Ruby on Rails application, with an "import" end-point (that I had to run manually) to check the <em>dot org</em> and see if new episodes were available. If so, it would use <a href="https://nokogiri.org">Nokogiri</a> to scrape out the necessary meta data (number, title, description, date, image url, mp3 url) and save it all to a database, then use the image and mp3 urls to save copies of those files in an s3 bucket. I snagged this sick domain, and I was GOOD TO GO!</p>
 
-  <p>The problem is, website scraping is notoriously unreliable, design elements change, paths break, and I was having a weird issue saving the mp3 files. There was something werid going on with Rails and Heroku and files being saved to disk in the process of uploading it to s3. It was clunky to say the least! Eventually I got sick of dealing with the little bugs that I couldn't figure out, and the project went to the backburner. Time went by. I let the domain expire.</p>
+  <p>The problem is that website scraping is notoriously unreliable, design elements change, paths break, and I was having a weird issue with Rails + Heroku + saving the mp3 file locally to disk in the process of uploading it to s3. I never really figured it out. It was clunky to say the least! Eventually I got sick of dealing with the little bugs, and the project went to the backburner. Time went by. I let the domain expire.</p>
 
   <p>No big deal. I moved on.</p>
 
-  <p>Recently I've been having lots of fun playing around with <a href="https://jekyllrb.com" target="_blank">Jekyll</a> and <a href="https://pages.github.com" target="_blank">Github Pages</a>. I started using it for <a href="https://hotwontquit.com" target="_blank">my band</a> about a decade ago, it was the obvious choice for <a href="https://secretrollerdisco.org" target="_blank">the roller disco in town</a>, and it's been super fun translating some of my small database-driven Ruby on Rails projects over to the wonderful world of <em>files on disk</em> and <em>front-matter</em>! Like, this silly little project has <em>pagination</em>, a pretty good little <em><a href="/search">search bar</a></em>, and it's all achieved with mostly basic and built-in functionality.</p>
+  <p>Recently, though, I've been having lots of fun playing around with <a href="https://jekyllrb.com" target="_blank">Jekyll</a> and <a href="https://pages.github.com" target="_blank">Github Pages</a>. I started using it for <a href="https://hotwontquit.com" target="_blank">my band</a> about a decade ago, it was the obvious choice for <a href="https://secretrollerdisco.org" target="_blank">the roller disco in town</a>, and it's been super fun translating some of my small database-driven Ruby on Rails projects over to the wonderful world of <em>files on disk</em> and <em>front-matter</em>! Like, this silly little project has <em>pagination</em>, a pretty good little <em><a href="/search">search bar</a></em>, and it's all achieved with basic and built-in functionality.</p>
 
   <p>Very cool! BIG FAN.</p>
 
@@ -24,11 +24,15 @@ title: About
 
   <a id="api"></a>
 
-  <h3>There's an API?!</h3>
+  <h3 class="fw-bold fs-2 my-4 text-center">There's an API?!</h3>
 
   <p>I use the label "API" very loosely here. I think more accurately this section should probably be called "End-Point" because that's all you get: one dumb end-point.</p>
 
-<pre>
+  <p class="fw-bold">
+    <a href="/api.json" target="_blank">{{ site.url }}/api.json</a>
+  </p>
+
+<pre class="bg-body-secondary p-3 rounded">
 [{
   "number": 0,
   "why": "so that array[1] will return episode 1, array[2] returns episode 2, etc"
@@ -61,10 +65,6 @@ title: About
   "url_external": "https://www.thisamericanlife.org/s/3"
 },...]
 </pre>
-
-  <p class="api-link">
-    <a href="/api.json" target="_blank">{{ site.url }}/api.json</a>
-  </p>
 
   <p>It's literally just every episode in one big dumb dump, but it <em>is</em> valid json and can be parsed as such. Eventually, I want to add a couple url params for search, pagination, and probably single episodes. We'll see. Turns out, I think this shit is fun. What a world!</p>
 

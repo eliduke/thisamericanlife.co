@@ -3,13 +3,17 @@ layout: default
 ---
 
 <div class="episode">
-  <h2>{{page.title}}</h2>
-  <p class="date">#{{page.number}} - {{page.date | date: "%-d %B %Y"}}</p>
-  <p class="description">{{page.description}}</p>
-  <audio src="{{site.assets}}/audios/{{page.slug}}.mp3" controls preload></audio>
-  <ul class="links list list-inline">
-    <li><a href="{{site.assets}}/audios/{{page.slug}}.mp3" target="_blank">mp3</a></li>
-    <li><a href="https://www.thisamericanlife.org/s/{{page.number}}" target="_blank">thisamericanlife.org</a></li>
+  <h2 class="mt-4">{{page.title}}</h2>
+  <p class="text-dark-emphasis fst-italic">#{{page.number}} - {{page.date | date: "%-d %B %Y"}}</p>
+  <p class="text-dark-emphasis fs-5">{{page.description}}</p>
+  <audio class="w-100" src="{{site.assets}}/audios/{{page.slug}}.mp3" controls preload></audio>
+  <ul class="audio-links list list-inline">
+    <li class="list-inline-item">
+      <a href="{{site.assets}}/audios/{{page.slug}}.mp3" target="_blank">mp3</a>
+    </li>
+    <li class="list-inline-item">
+      <a href="https://www.thisamericanlife.org/s/{{page.number}}" target="_blank">thisamericanlife.org</a>
+    </li>
   </ul>
-  <img src="{{site.assets}}/images/{{page.slug}}.jpg" class="img-responsive">
+  <img class="img-fluid my-3" src="{{site.assets}}/images/{{page.slug}}.jpg">
 </div>
