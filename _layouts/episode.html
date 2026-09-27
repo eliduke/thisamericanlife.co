@@ -5,7 +5,6 @@ layout: default
 <div class="episode">
   <h2 class="mt-4">{{page.title}}</h2>
   <p class="text-dark-emphasis fst-italic">#{{page.number}} - {{page.date | date: "%-d %B %Y"}}</p>
-  <p class="text-dark-emphasis fs-5">{{page.description}}</p>
   <audio class="w-100" src="{{site.assets}}/audios/{{page.slug}}.mp3" controls preload></audio>
   <ul class="audio-links list list-inline">
     <li class="list-inline-item">
@@ -15,5 +14,6 @@ layout: default
       <a href="https://www.thisamericanlife.org/s/{{page.number}}" target="_blank">thisamericanlife.org</a>
     </li>
   </ul>
+  <p class="text-dark-emphasis fs-5">{{page.description}}</p>
   <img class="img-fluid my-3" src="{{site.assets}}/images/{{page.slug}}.jpg">
 </div>
